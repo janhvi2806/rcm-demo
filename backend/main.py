@@ -1,4 +1,14 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # For demo, allow all. To be replaced with Vercel URL later.
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 from backend.routers import patients, encounters, claims, agents
 from backend.database import Base, engine, SessionLocal
 from backend.models import Patient, Encounter
