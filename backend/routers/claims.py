@@ -25,7 +25,6 @@ def submit_claim(encounter_id: int, country: str = "UAE", db: Session = Depends(
     if not encounter:
         return {"error": "Encounter not found"}
 
-    # Generate payload depending on country
     if country == "UAE":
         payload = generate_xml(encounter)
     else:

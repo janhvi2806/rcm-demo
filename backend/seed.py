@@ -4,7 +4,7 @@ from models import Patient, Encounter
 db = SessionLocal()
 
 p1 = Patient(name="Fatima", insurance="Daman Insurance")
-p2 = Patient(name="Ahmed", insurance="AXA Gulf")
+p2 = Patient(name="Asad", insurance="AXA Gulf")
 
 db.add_all([p1, p2])
 db.commit()

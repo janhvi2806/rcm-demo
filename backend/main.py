@@ -4,7 +4,6 @@ from backend.routers import patients, encounters, claims, agents
 from backend.database import Base, engine, SessionLocal
 from backend.models import Patient, Encounter
 
-# Create tables
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="AI-Native RCM Demo")
@@ -38,7 +37,7 @@ def seed_data():
 
     # Patients
     p1 = Patient(name="Fatima", insurance="Daman Insurance")
-    p2 = Patient(name="Ahmed", insurance="AXA Gulf")
+    p2 = Patient(name="Asad", insurance="AXA Gulf")
     db.add_all([p1, p2])
     db.commit()
 
