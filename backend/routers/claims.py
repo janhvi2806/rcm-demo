@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
+import random
 from backend.database import SessionLocal
 from backend.models import Claim, Encounter
 from backend.adapters.uae_eclaimlink import generate_xml
@@ -14,19 +15,34 @@ def get_db():
     finally:
         db.close()
 
+@router.get("/")
+def list_claims(db: Session = Depends(get_db)):
+    return db.query(Claim).all()
+
 @router.post("/submit/{encounter_id}")
 def submit_claim(encounter_id: int, country: str = "UAE", db: Session = Depends(get_db)):
     encounter = db.query(Encounter).get(encounter_id)
     if not encounter:
         return {"error": "Encounter not found"}
 
+    # Generate payload depending on country
     if country == "UAE":
         payload = generate_xml(encounter)
     else:
         payload = generate_json(encounter)
 
-    claim = Claim(encounter_id=encounter.id, status="submitted", amount=350, payload=str(payload))
+    # Randomly approve or deny
+    status = random.choice(["approved", "denied"])
+    amount = 350 if status == "approved" else 0.0
+
+    claim = Claim(
+        encounter_id=encounter.id,
+        status=status,
+        amount=amount,
+        payload=str(payload)
+    )
     db.add(claim)
     db.commit()
     db.refresh(claim)
+
     return claim
