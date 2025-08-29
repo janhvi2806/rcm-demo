@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from routers import patients, encounters, claims, agents
-from database import Base, engine, SessionLocal
-from models import Patient, Encounter
+from backend.routers import patients, encounters, claims, agents
+from backend.database import Base, engine, SessionLocal
+from backend.models import Patient, Encounter
 
 # Create tables
 Base.metadata.create_all(bind=engine)
