@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from backend.database import SessionLocal
-from backend.models import Patient
+from backend.models import Encounter
 
-router = APIRouter(prefix="/patients", tags=["Patients"])
+router = APIRouter(prefix="/encounters", tags=["Encounters"])
 
 def get_db():
     db = SessionLocal()
@@ -13,13 +13,13 @@ def get_db():
         db.close()
 
 @router.get("/")
-def list_patients(db: Session = Depends(get_db)):
-    return db.query(Patient).all()
+def list_encounters(db: Session = Depends(get_db)):
+    return db.query(Encounter).all()
 
 @router.post("/")
-def add_patient(name: str, insurance: str, db: Session = Depends(get_db)):
-    patient = Patient(name=name, insurance=insurance)
-    db.add(patient)
+def add_encounter(patient_id: int, note: str, db: Session = Depends(get_db)):
+    encounter = Encounter(patient_id=patient_id, note=note)
+    db.add(encounter)
     db.commit()
-    db.refresh(patient)
-    return patient
+    db.refresh(encounter)
+    return encounter
