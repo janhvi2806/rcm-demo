@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from database import SessionLocal
-from models import Patient
+from backend.database import SessionLocal
+from backend.models import Patient
 
 router = APIRouter(prefix="/patients", tags=["Patients"])
 

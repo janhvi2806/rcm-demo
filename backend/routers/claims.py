@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from database import SessionLocal
-from models import Claim, Encounter
+from backend.database import SessionLocal
+from backend.models import Claim, Encounter
 from adapters.uae_eclaimlink import generate_xml
 from adapters.ksa_nphies import generate_json
 
