@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from backend.database import SessionLocal
 from backend.models import Claim, Encounter
-from adapters.uae_eclaimlink import generate_xml
-from adapters.ksa_nphies import generate_json
+from backend.adapters.uae_eclaimlink import generate_xml
+from backend.adapters.ksa_nphies import generate_json
 
 router = APIRouter(prefix="/claims", tags=["Claims"])
 
