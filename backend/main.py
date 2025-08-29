@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from routers import patients, encounters, claims, agents
-from database import Base, engine
+from database import Base, engine, SessionLocal
+from models import Patient, Encounter
 
 # Create tables
 Base.metadata.create_all(bind=engine)
@@ -16,3 +17,25 @@ app.include_router(agents.router)
 @app.get("/")
 def root():
     return {"message": "RCM Demo Backend is running!"}
+
+@app.post("/seed")
+def seed_data():
+    db = SessionLocal()
+
+    # check if already seeded
+    if db.query(Patient).count() > 0:
+        return {"message": "Database already seeded ✅"}
+
+    # Patients
+    p1 = Patient(name="Fatima", insurance="Daman Insurance")
+    p2 = Patient(name="Ahmed", insurance="AXA Gulf")
+    db.add_all([p1, p2])
+    db.commit()
+
+    # Encounters
+    e1 = Encounter(patient_id=p1.id, note="Type 2 diabetes, prescribed Metformin")
+    e2 = Encounter(patient_id=p2.id, note="Hypertension, BP 150/90, prescribed Amlodipine")
+    db.add_all([e1, e2])
+    db.commit()
+
+    return {"message": "✅ Seed data inserted successfully"}
