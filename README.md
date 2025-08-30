@@ -1,4 +1,4 @@
-# AI-Native RCM Platform (Demo)
+# AI-Native RCM Platform
 
 This is a full-stack **AI-native Revenue Cycle Management (RCM) platform** built for the GCC healthcare market.  
 It reimagines the traditional RCM workflow by embedding **AI agents** for eligibility checks, coding suggestions, and automated claim submission.
@@ -37,7 +37,7 @@ This project includes an **AI Agent for Coding Suggestion** that:
 - Embeds those codes into the claim payload (XML for UAE, JSON for KSA)  
 
 ⚡ In a real-world system, this would use **NLP/ML models trained on EMRs**.  
-For this demo, the coding agent simulates that process and outputs realistic sample codes.  
+For this , the coding agent simulates that process and outputs realistic sample codes.  
 
 ---
 
