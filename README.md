@@ -81,7 +81,7 @@ Frontend (Next.js on Vercel): https://rcm-demo-frontend.vercel.app
 
 ## 📌 Workflow
 
-
+<img width="800" height="600" alt="rcm_workflow" src="https://github.com/user-attachments/assets/4d61fcdf-f13e-4bf4-a62f-51aac2be686d" />
 
 <!-- 1. Seed database (POST /seed in backend docs)
 2. View patients (GET /patients/)
@@ -93,4 +93,4 @@ Frontend (Next.js on Vercel): https://rcm-demo-frontend.vercel.app
 
 ## 🎥 Live Demo (Video)
 
-👉 [Click here to watch the full demo](https://raw.githubusercontent.com/username/repository/main/path/to/video.mp4)
+👉 [Click here to watch the full demo](https://drive.google.com/file/d/1z9f-4vbxYvpZ5ZuF7INuDxTGFutIAmVl/view?usp=sharing)
