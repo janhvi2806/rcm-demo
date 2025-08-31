@@ -1,4 +1,4 @@
-# AI-Native RCM Platform (Demo)
+# AI-Native RCM Platform
 
 This is a full-stack **AI-native Revenue Cycle Management (RCM) platform** built for the GCC healthcare market.  
 It reimagines the traditional RCM workflow by embedding **AI agents** for eligibility checks, coding suggestions, and automated claim submission.
@@ -37,7 +37,7 @@ This project includes an **AI Agent for Coding Suggestion** that:
 - Embeds those codes into the claim payload (XML for UAE, JSON for KSA)  
 
 ⚡ In a real-world system, this would use **NLP/ML models trained on EMRs**.  
-For this demo, the coding agent simulates that process and outputs realistic sample codes.  
+For this , the coding agent simulates that process and outputs realistic sample codes.  
 
 ---
 
@@ -81,7 +81,7 @@ Frontend (Next.js on Vercel): https://rcm-demo-frontend.vercel.app
 
 ## 📌 Workflow
 
-
+<img width="800" height="600" alt="rcm_workflow" src="https://github.com/user-attachments/assets/4d61fcdf-f13e-4bf4-a62f-51aac2be686d" />
 
 <!-- 1. Seed database (POST /seed in backend docs)
 2. View patients (GET /patients/)
@@ -93,4 +93,4 @@ Frontend (Next.js on Vercel): https://rcm-demo-frontend.vercel.app
 
 ## 🎥 Live Demo (Video)
 
-👉 [Click here to watch the full demo](https://raw.githubusercontent.com/username/repository/main/path/to/video.mp4)
+👉 [Click here to watch the full demo](https://drive.google.com/file/d/1z9f-4vbxYvpZ5ZuF7INuDxTGFutIAmVl/view?usp=sharing)
